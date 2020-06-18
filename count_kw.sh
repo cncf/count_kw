@@ -21,17 +21,17 @@ function cleanup {
 }
 trap cleanup EXIT
 > "${fn}"
-echo "Paths: ${1}"
-echo "Filename patterns: ${2}"
-echo "Keyword pattern: ${3}"
+# echo "Paths: ${1}"
+# echo "Filename patterns: ${2}"
+# echo "Keyword pattern: ${3}"
 read -ra paths <<< "${1}"
 read -ra patterns <<< "${2}"
 for pth in "${paths[@]}"
 do
-  echo "Path: ${pth}"
+  # echo "Path: ${pth}"
   for pat in "${patterns[@]}"
   do
-    echo "Filename pattern: ${pat}"
+    # echo "Filename pattern: ${pat}"
     find "${pth}" -type f -iname "${pat}" -not -wholename "${fn}" -not -path '*.git/*' -not -path '*vendor/*' -not -path '*.svn/*' -not -path '*.github/*' -not -path '*.circleci/*' -exec grep -HEInio "(^|[[:punct:][:space:]]+)${3}([[:punct:][:space:]]+|$)" "{}" \; | tee -a "${fn}" || exit 4
   done
 done
