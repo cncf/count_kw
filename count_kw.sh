@@ -1,17 +1,17 @@
 #!/bin/bash
 if [ -z "${1}" ]
 then
-  echo "$0: please provide a path as a first argument, for example '.'"
+  echo "$0: please provide a path as a first argument, for example '.', or list '/path/1;/path/2'"
   exit 1
 fi
 if [ -z "${2}" ]
 then
-  echo "$0: please provide a filename pattern as a second arument, for example '*'"
+  echo "$0: please provide a filename pattern as a second arument, for example '*' or list '*.go;*.c'"
   exit 2
 fi
 if [ -z "${3}" ]
 then
-  echo "$0: please provide a keyword as a 3rd argument, for example 'kubernetes'"
+  echo "$0: please provide a keyword as a 3rd argument, for example 'kubernetes' can also be regexp '(pattern|argument)'"
   exit 3
 fi
 fn="/tmp/${3}.data"
@@ -20,5 +20,18 @@ function cleanup {
 }
 trap cleanup EXIT
 > "${fn}"
-find "${1}" -type f -iname "${2}" -not -wholename "${fn}" -not -path '*.git/*' -not -path '*vendor/*' -exec grep -HEInio "(^|[[:punct:][:space:]]+)${3}([[:punct:][:space:]]+|$)" "{}" \; | tee "${fn}" || exit 4
+echo "Paths: ${1}"
+echo "Filename patterns: ${2}"
+echo "Keyword pattern: ${3}"
+read -ra paths <<< "${1}"
+read -ra patterns <<< "${2}"
+for pth in "${paths[@]}"
+do
+  echo "Path: ${pth}"
+  for pat in "${patterns[@]}"
+  do
+    echo "Filename pattern: ${pat}"
+    find "${pth}" -type f -iname "${pat}" -not -wholename "${fn}" -not -path '*.git/*' -not -path '*vendor/*' -exec grep -HEInio "(^|[[:punct:][:space:]]+)${3}([[:punct:][:space:]]+|$)" "{}" \; | tee -a "${fn}" || exit 4
+  done
+done
 cat "${fn}" | wc -l || exit 5
