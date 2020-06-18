@@ -1,12 +1,12 @@
 #!/bin/bash
 if [ -z "${1}" ]
 then
-  echo "$0: please provide a path as a first argument, for example '.', or list '/path/1;/path/2'"
+  echo "$0: please provide a path as a first argument, for example '.', or list '/path/1 /path/2'"
   exit 1
 fi
 if [ -z "${2}" ]
 then
-  echo "$0: please provide a filename pattern as a second arument, for example '*' or list '*.go;*.c'"
+  echo "$0: please provide a filename pattern as a second arument, for example '*' or list '*.go *.c'"
   exit 2
 fi
 if [ -z "${3}" ]
