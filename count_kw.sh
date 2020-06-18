@@ -23,5 +23,5 @@ trap cleanup EXIT
 #find . -type f -exec grep -EIi "(^|[[:punct:][:space:]]+)[sS][oO][uU][rR][cC][eE]([[:punct:][:space:]]+|$)" "{}" \; >> "${fn}" || exit 2
 #vim -c '%s/\s\+/\r/g' -c 'wq!' "${fn}" || exit 3
 #cat "${fn}" | grep -EIi "(^|[[:punct:][:space:]]+)[sS][oO][uU][rR][cC][eE]([[:punct:][:space:]]+|$)" | wc -l || exit 4
-find "${1}" -type f -iname "${2}" -exec grep -HEInio "(^|[[:punct:][:space:]]+)${3}([[:punct:][:space:]]+|$)" "{}" \; | tee "${fn}"
+find "${1}" -type f -iname "${2}" -not -wholename "${fn}" -not -path '*.git/*' -exec grep -HEInio "(^|[[:punct:][:space:]]+)${3}([[:punct:][:space:]]+|$)" "{}" \; | tee "${fn}"
 cat "${fn}" | wc -l
