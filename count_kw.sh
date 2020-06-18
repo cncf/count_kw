@@ -18,7 +18,6 @@ ns=`date +%s%N`
 fn="/tmp/${ns}.data"
 function cleanup {
   rm -f "${fn}"
-  echo "removed temp file ${fn}"
 }
 trap cleanup EXIT
 > "${fn}"
