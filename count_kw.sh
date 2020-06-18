@@ -14,9 +14,11 @@ then
   echo "$0: please provide a keyword as a 3rd argument, for example 'kubernetes' can also be regexp '(pattern|argument)'"
   exit 3
 fi
-fn="/tmp/${3}.data"
+ns=`date +%s%N`
+fn="/tmp/${ns}.data"
 function cleanup {
   rm -f "${fn}"
+  echo "removed temp file ${fn}"
 }
 trap cleanup EXIT
 > "${fn}"
