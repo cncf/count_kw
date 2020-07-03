@@ -97,11 +97,15 @@ skip_project() {
   IFS=$OIFS
   return 0
 }
+echo "Projects: ${projs[@]}"
+echo "Sources: ${sources[@]}"
+echo "Keywords: ${kws[@]}"
 for i in "${!projs[@]}"
 do
   proj="${projs[$i]}"
   if skip_project "${proj}"
   then
+    echo "Skipped ${proj}"
     continue
   fi
   src="${sources[$i]}"
