@@ -13,3 +13,17 @@ TiKV,939,59,25,42
 Flux,485,0,7,0
 NATS,3953,0,13,6
 KubeEdge,646,2,0,0
+KubeVirt,4500,26,81,37
+Jenkins X,37,14,0,1
+OpenTelemetry,1378,2,77,15
+GraphQL,179,0,1,3
+Spinnaker,3472,175,49,51
+Tekton,648,2,0,0
+Jaeger,1143,2,140,137
+Kubernetes,,,,
+Linux kernel,43674,28810,556,780
+Node.js,,,,
+Helm,3908,668,50,8
+gRPC,1164,2,23,44
+Prometheus,713,164,76,46
+Jenkins,3457,1266,138,

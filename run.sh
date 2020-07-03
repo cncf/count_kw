@@ -1,6 +1,7 @@
 #!/bin/bash
 # RESET=1 - reset output file
 # VERBOSE=1 - pass verbose mode to count_kw.sh script
+# SRC_BASE=/path/to/sources/folder (defaults to ~/devstats_repos)
 # ONLY='Kubernetes,Prometheus' - specify subset of projects to run
 # ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge'
 wd=`pwd`
@@ -9,7 +10,12 @@ if [ ! -z "${RESET}" ]
 then
   echo 'master,slave,whitelist,blacklist' > "${fn}"
 fi
-cd ~/devstats_repos/
+if [ -z "${SRC_BASE}" ]
+then
+  cd ~/devstats_repos/
+else
+  cd "${SRC_BASE}" || exit 1
+fi
 declare -A kws
 kws[${#kws[@]}]='master'
 kws[${#kws[@]}]='slave'
@@ -50,7 +56,7 @@ projs[${#projs[@]}]='KubeEdge'
 declare -A sources
 sources[${#sources[@]}]='kubernetes kubernetes-client kubernetes-csi kubernetes-incubator kubernetes-security kubernetes-sigs kubernetes-sig-testing'
 sources[${#sources[@]}]='torvalds/linux'
-sources[${#sources[@]}]='node'
+sources[${#sources[@]}]='nodejs/node'
 sources[${#sources[@]}]='helm'
 sources[${#sources[@]}]='grpc'
 sources[${#sources[@]}]='prometheus'

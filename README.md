@@ -6,5 +6,5 @@ Count given keywords in a given project, example call:
 
 Count predefined 4 keywords counts in LF projects:
 
-- `[RESET=1] [ONLY='TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge'] ./run.sh`.
+- `[SRC_BASE=/root/devstats_repos/] [RESET=1] [ONLY='TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge'] ./run.sh`.
 
