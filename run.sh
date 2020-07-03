@@ -177,7 +177,7 @@ do
   for j in "${!kws[@]}"
   do
     kw="${kws[$j]}"
-    echo -n "${proj}(${src}) ${kw}: "
+    echo -n "`date +%T.%N` ${proj}(${src}) ${kw}: "
     res=`"${wd}/count_kw.sh" "${src}" '*' "${kw}"`
     echo "${res}"
     echo -n "${res}" >> "${fn}"
