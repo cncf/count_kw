@@ -22,6 +22,8 @@ fi
 for org in $*
 do
   echo "Org: $org"
+  mkdir "${org}" 2>/dev/null
+  cd "${org}"
   cmd="curl ${args} -s 'https://api.github.com/orgs/${org}/repos?type=public&per_page=100&page="
   i="1"
   c="0"
@@ -47,4 +49,5 @@ do
     i=$((i+1))
   done
   echo "Org: $org, cloned $c repos"
+  cd ..
 done
