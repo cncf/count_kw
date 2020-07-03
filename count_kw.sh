@@ -32,7 +32,12 @@ do
   for pat in "${patterns[@]}"
   do
     # echo "Filename pattern: ${pat}"
-    find "${pth}" -type f -iname "${pat}" -not -wholename "${fn}" -not -path '*.git/*' -not -path '*vendor/*' -not -path '*.svn/*' -not -path '*.github/*' -not -path '*.circleci/*' -exec grep -HEInio "(^|[[:punct:][:space:]]+)${3}([[:punct:][:space:]]+|$)" "{}" \; | tee -a "${fn}" || exit 4
+    if [ -z "${VERBOSE}" ]
+    then
+      find "${pth}" -type f -iname "${pat}" -not -wholename "${fn}" -not -path '*.git/*' -not -path '*vendor/*' -not -path '*.svn/*' -not -path '*.github/*' -not -path '*.circleci/*' -exec grep -HEInio "(^|[[:punct:][:space:]]+)${3}([[:punct:][:space:]]+|$)" "{}" \; > "${fn}" || exit 4
+    else
+      find "${pth}" -type f -iname "${pat}" -not -wholename "${fn}" -not -path '*.git/*' -not -path '*vendor/*' -not -path '*.svn/*' -not -path '*.github/*' -not -path '*.circleci/*' -exec grep -HEInio "(^|[[:punct:][:space:]]+)${3}([[:punct:][:space:]]+|$)" "{}" \; | tee -a "${fn}" || exit 4
+    fi
   done
 done
 cat "${fn}" | wc -l || exit 5
