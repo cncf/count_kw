@@ -1,2 +1,15 @@
 master,slave,whitelist,blacklist
-Harbor,
+Vitess,8598,720,23,27
+CoreDNS,213,0,4,22
+containerd,336,32,3,0
+Linkerd,3650,499,62,21
+etcd,924,4,39,0
+OpenEBS,10351,623,6714,156
+Rook,3180,730,273,524
+Thanos,340,1,2,1
+OPA,322,0,107,39
+Harbor,434,73,53,0
+TiKV,939,59,25,42
+Flux,485,0,7,0
+NATS,3953,0,13,6
+KubeEdge,646,2,0,0

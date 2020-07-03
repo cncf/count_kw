@@ -122,5 +122,5 @@ do
       echo -n ',' >> "${fn}"
     fi
   done
+  echo '' >> "${fn}"
 done
-echo '' >> "${fn}"
