@@ -3,6 +3,7 @@
 Count given keywords in a given project, example call:
 
 - `./count_kw.sh '/path/1 /path/2' '*.go *.c* *.md' '(argument1|argument2)'`.
+- Example: `VERBOSE=1 ./count_kw.sh '/root/devstats_repos/cncf /root/devstats_repos/crosscloudci /root/devstats_repos/cdfoundation' '*' master`.
 
 Count predefined 4 keywords counts in LF projects:
 
