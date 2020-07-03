@@ -14,7 +14,7 @@ else
 fi
 if [ ! -z "${RESET}" ]
 then
-  echo 'master,slave,whitelist,blacklist' > "${fn}"
+  echo 'project,master,slave,whitelist,blacklist' > "${fn}"
 fi
 if [ -z "${SRC_BASE}" ]
 then
