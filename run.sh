@@ -3,9 +3,15 @@
 # VERBOSE=1 - pass verbose mode to count_kw.sh script
 # SRC_BASE=/path/to/sources/folder (defaults to ~/devstats_repos)
 # ONLY='Kubernetes,Prometheus' - specify subset of projects to run
-# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio'
+# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry'
+# FN=resultfile.csv (default: result.csv"
 wd=`pwd`
-fn="${wd}/result.csv"
+if [ -z "${FN}" ]
+then
+  fn="${wd}/result.csv"
+else
+  fn="${wd}/${FN}"
+fi
 if [ ! -z "${RESET}" ]
 then
   echo 'master,slave,whitelist,blacklist' > "${fn}"
@@ -78,6 +84,7 @@ projs[${#projs[@]}]='OpenMetrics'
 projs[${#projs[@]}]='CNCF'
 projs[${#projs[@]}]='Knative'
 projs[${#projs[@]}]='Istio'
+projs[${#projs[@]}]='CloudFoundry'
 declare -A sources
 sources[${#sources[@]}]='kubernetes kubernetes-client kubernetes-csi kubernetes-incubator kubernetes-security kubernetes-sigs kubernetes-sig-testing'
 sources[${#sources[@]}]='torvalds/linux'
@@ -135,6 +142,7 @@ sources[${#sources[@]}]='OpenObservability'
 sources[${#sources[@]}]='cncf crosscloudci cdfoundation'
 sources[${#sources[@]}]='knative'
 sources[${#sources[@]}]='istio'
+sources[${#sources[@]}]='cloudfoundry'
 skip_project() {
   if [ -z "${ONLY}" ]
   then
