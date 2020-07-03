@@ -30,4 +30,29 @@ Jenkins X,19337,769,155,113
 Kubernetes,62618,3331,3783,180
 Node.js,2232,55,150,129
 Jenkins,30425,19225,1942,504
-Istio,5819,
+Istio,5819,190,429,185
+Knative,1208,1,16,0
+CNCF,193466,9588,68457,947
+OpenMetrics,3,0,0,0
+rkt,186,24,33,22
+Notary,10,0,0,0
+Telepresence,83,20,0,0
+in-toto,328,0,3,3
+Spiffe,559,0,80,10
+Spire,52,0,58,0
+ChubaoFS,880,2,6,16
+TUF,123,0,1,2
+Buildpacks,133,0,0,0
+CDF,138,0,1,0
+OpenTracing,266,0,3,0
+Dragonfly,73,0,2,39
+CNI,200,0,0,0
+Falco,362,30,29,0
+CloudEvents,269,0,0,0
+CRI-O,95,2,4,0
+Cortex,67,0,0,6
+Strimzi,1557,0,909,26
+Network Service Mesh,361,72,42,20
+OCI,135,53,20,0
+Virtual Kubelet,148,0,0,0
+CloudFoundry,13520,271,996,538
