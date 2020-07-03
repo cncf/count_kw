@@ -48,7 +48,7 @@ projs[${#projs[@]}]='OPA'
 projs[${#projs[@]}]='Harbor'
 projs[${#projs[@]}]='KubeEdge'
 declare -A sources
-sources[${#sources[@]}]='kubernetes kubernetes-client kubernetes-csi kubernetes-incubator kubernetes-security kubernetes-sig kubernetes-sig-testing'
+sources[${#sources[@]}]='kubernetes kubernetes-client kubernetes-csi kubernetes-incubator kubernetes-security kubernetes-sigs kubernetes-sig-testing'
 sources[${#sources[@]}]='torvalds/linux'
 sources[${#sources[@]}]='node'
 sources[${#sources[@]}]='helm'
