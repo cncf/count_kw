@@ -3,7 +3,7 @@
 # VERBOSE=1 - pass verbose mode to count_kw.sh script
 # SRC_BASE=/path/to/sources/folder (defaults to ~/devstats_repos)
 # ONLY='Kubernetes,Prometheus' - specify subset of projects to run
-# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB'
+# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB,DPDK'
 # FN=resultfile.csv (default: result.csv"
 wd=`pwd`
 if [ -z "${FN}" ]
@@ -111,6 +111,7 @@ projs[${#projs[@]}]='OpenEXR'
 projs[${#projs[@]}]='Open Shading Language'
 projs[${#projs[@]}]='OpenTimeline.io'
 projs[${#projs[@]}]='OpenVDB'
+projs[${#projs[@]}]='DPDK'
 declare -A sources
 sources[${#sources[@]}]='kubernetes kubernetes-client kubernetes-csi kubernetes-incubator kubernetes-security kubernetes-sigs kubernetes-sig-testing'
 sources[${#sources[@]}]='torvalds/linux'
@@ -195,6 +196,7 @@ sources[${#sources[@]}]='AcademySoftwareFoundation/openexr AcademySoftwareFounda
 sources[${#sources[@]}]='imageworks/OpenShadingLanguage'
 sources[${#sources[@]}]='PixarAnimationStudios/OpenTimelineIO'
 sources[${#sources[@]}]='AcademySoftwareFoundation/openvdb AcademySoftwareFoundation/openvdb-website'
+sources[${#sources[@]}]='dpdk'
 skip_project() {
   if [ -z "${ONLY}" ]
   then
