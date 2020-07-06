@@ -3,8 +3,8 @@
 # VERBOSE=1 - pass verbose mode to count_kw.sh script
 # SRC_BASE=/path/to/sources/folder (defaults to ~/devstats_repos)
 # ONLY='Kubernetes,Prometheus' - specify subset of projects to run
-# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB,DPDK,Dronecode,Stack Storm,Tars Cloud'
-# FN=resultfile.csv (default: result.csv"
+# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB,DPDK,Dronecode,Stack Storm,Tars Cloud,Yocto,ACUMOS'
+# FN=resultfile.csv (default: result.csv)
 wd=`pwd`
 if [ -z "${FN}" ]
 then
@@ -115,6 +115,8 @@ projs[${#projs[@]}]='DPDK'
 projs[${#projs[@]}]='Dronecode'
 projs[${#projs[@]}]='Stack Storm'
 projs[${#projs[@]}]='Tars Cloud'
+projs[${#projs[@]}]='Yocto'
+projs[${#projs[@]}]='ACUMOS'
 declare -A sources
 sources[${#sources[@]}]='kubernetes kubernetes-client kubernetes-csi kubernetes-incubator kubernetes-security kubernetes-sigs kubernetes-sig-testing'
 sources[${#sources[@]}]='torvalds/linux'
@@ -203,6 +205,8 @@ sources[${#sources[@]}]='dpdk'
 sources[${#sources[@]}]='dronecode'
 sources[${#sources[@]}]='StackStorm'
 sources[${#sources[@]}]='TarsCloud'
+sources[${#sources[@]}]='yocto'
+sources[${#sources[@]}]='acumos'
 skip_project() {
   if [ -z "${ONLY}" ]
   then
