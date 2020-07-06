@@ -3,7 +3,7 @@
 # VERBOSE=1 - pass verbose mode to count_kw.sh script
 # SRC_BASE=/path/to/sources/folder (defaults to ~/devstats_repos)
 # ONLY='Kubernetes,Prometheus' - specify subset of projects to run
-# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB,DPDK,Dronecode,Stack Storm,Tars Cloud,Yocto,ACUMOS,Adlik,ANGEL,PaddlePaddle,EDL,Zowe,ForestFlow,Horovod,LF-AI,Ludwig,Marquez,Milvus,NNSTREAMER,ONNX,Pyro,Sparklyr,Akraino Edge,Baetyl,EdgeX Foundry,Fledge,Home Edge,Open Horizon,Project Eve,State of the Edge,LF Edge,OPX,CNTT,FD.io,OpenDaylight,ONAP,OPNFV,PNDA,TungstenFabric'
+# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB,DPDK,Dronecode,Stack Storm,Tars Cloud,Yocto,ACUMOS,Adlik,ANGEL,PaddlePaddle,EDL,Zowe,ForestFlow,Horovod,LF-AI,Ludwig,Marquez,Milvus,NNSTREAMER,ONNX,Pyro,Sparklyr,Akraino Edge,Baetyl,EdgeX Foundry,Fledge,Home Edge,Open Horizon,Project Eve,State of the Edge,LF Edge,OPX,CNTT,FD.io,OpenDaylight,ONAP,OPNFV,PNDA,TungstenFabric,O-RAN'
 # FN=resultfile.csv (default: result.csv)
 wd=`pwd`
 if [ -z "${FN}" ]
@@ -149,6 +149,7 @@ projs[${#projs[@]}]='ONAP'
 projs[${#projs[@]}]='OPNFV'
 projs[${#projs[@]}]='PNDA'
 projs[${#projs[@]}]='TungstenFabric'
+projs[${#projs[@]}]='O-RAN'
 declare -A sources
 sources[${#sources[@]}]='kubernetes kubernetes-client kubernetes-csi kubernetes-incubator kubernetes-security kubernetes-sigs kubernetes-sig-testing'
 sources[${#sources[@]}]='torvalds/linux'
@@ -270,7 +271,8 @@ sources[${#sources[@]}]='odl'
 sources[${#sources[@]}]='onap'
 sources[${#sources[@]}]='opnfv'
 sources[${#sources[@]}]='pndaproject'
-sources[${#sources[@]}]='tf'
+sources[${#sources[@]}]='tungstenfabric'
+sources[${#sources[@]}]='oran'
 skip_project() {
   if [ -z "${ONLY}" ]
   then
