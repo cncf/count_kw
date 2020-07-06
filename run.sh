@@ -3,7 +3,7 @@
 # VERBOSE=1 - pass verbose mode to count_kw.sh script
 # SRC_BASE=/path/to/sources/folder (defaults to ~/devstats_repos)
 # ONLY='Kubernetes,Prometheus' - specify subset of projects to run
-# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB,DPDK,Dronecode,Stack Storm,Tars Cloud,Yocto,ACUMOS,Adlik,ANGEL,PaddlePaddle,EDL,Zowe,ForestFlow,Horovod,LF-AI,Ludwig,Marquez,Milvus,NNSTREAMER,ONNX,Pyro,Sparklyr,Akraino Edge,Baetyl,EdgeX Foundry,Fledge,Home Edge,Open Horizon,Project Eve,State of the Edge,LF Edge,OPX,CNTT,FD.io,OpenDaylight,ONAP,OPNFV,PNDA,TungstenFabric,O-RAN,BI-AI,EGERIA,OpenDS4All,ODPi,Open Mainframe Project,ADE,Atom plugins,Feilong,tersedecompress,Zorow,OpenSwitch'
+# ONLY="Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB,DPDK,Dronecode,Stack Storm,Tars Cloud,Yocto,ACUMOS,Adlik,ANGEL,PaddlePaddle,EDL,Zowe,ForestFlow,Horovod,LF-AI,Ludwig,Marquez,Milvus,NNSTREAMER,ONNX,Pyro,Sparklyr,Akraino Edge,Baetyl,EdgeX Foundry,Fledge,Home Edge,Open Horizon,Project Eve,State of the Edge,LF Edge,OPX,CNTT,FD.io,OpenDaylight,ONAP,OPNFV,PNDA,TungstenFabric,O-RAN,BI-AI,EGERIA,OpenDS4All,ODPi,Open Mainframe Project,ADE,Atom plugins,Feilong,tersedecompress,Zorow,OpenSwitch,PX4 Drone Autopilot,Automotive Grade Linux,IO Visor,MAVLink,Let's Encrypt,P4 Language,SPDX,FOSSology,RethinkDB,Core Infrastructure,Mininet"
 # FN=resultfile.csv (default: result.csv)
 wd=`pwd`
 if [ -z "${FN}" ]
@@ -295,6 +295,17 @@ sources[${#sources[@]}]='openmainframeproject/python-zvm-sdk'
 sources[${#sources[@]}]='openmainframeproject/tersedecompress'
 sources[${#sources[@]}]='openmainframeproject/zorow'
 sources[${#sources[@]}]='open-switch'
+sources[${#sources[@]}]='PX4'
+sources[${#sources[@]}]='automotive-grade-linux'
+sources[${#sources[@]}]='iovisor'
+sources[${#sources[@]}]='mavlink'
+sources[${#sources[@]}]='letsencrypt'
+sources[${#sources[@]}]='p4lang'
+sources[${#sources[@]}]='spdx'
+sources[${#sources[@]}]='fossology'
+sources[${#sources[@]}]='rethinkdb'
+sources[${#sources[@]}]='coreinfrastructure'
+sources[${#sources[@]}]='mininet'
 skip_project() {
   if [ -z "${ONLY}" ]
   then
