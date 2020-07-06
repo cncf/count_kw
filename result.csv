@@ -99,3 +99,7 @@ ForestFlow,76,0,0,0
 Milvus,1616,22,30,52
 Marquez,60,0,0,0
 Ludwig,84,0,0,0
+ONNX,628,1,7,5
+NNSTREAMER,98,2,8,7
+Sparklyr,492,5,0,0
+Pyro,271,2,11,12
