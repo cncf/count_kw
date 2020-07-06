@@ -3,7 +3,7 @@
 # VERBOSE=1 - pass verbose mode to count_kw.sh script
 # SRC_BASE=/path/to/sources/folder (defaults to ~/devstats_repos)
 # ONLY='Kubernetes,Prometheus' - specify subset of projects to run
-# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB,DPDK,Dronecode,Stack Storm,Tars Cloud,Yocto,ACUMOS,Adlik,ANGEL,PaddlePaddle,EDL,Zowe,ForestFlow,Horovod,LF-AI,Ludwig,Marquez,Milvus,NNSTREAMER,ONNX,Pyro,Sparklyr,Akraino Edge,Baetyl,EdgeX Foundry,Fledge,Home Edge,Open Horizon,Project Eve,State of the Edge,LF Edge'
+# ONLY='Kubernetes,Linux kernel,Node.js,Helm,gRPC,Prometheus,Jenkins,Zephyr,Envoy,Fluentd,GraphQL,OpenTelemetry,Jenkins X,KubeVirt,Jaeger,Tekton,Spinnaker,TiKV,NATS,Flux,Rook,Thanos,etcd,OpenEBS,containerd,Linkerd,Vitess,CoreDNS,OPA,Harbor,KubeEdge,Falco,CRI-O,CloudEvents,Strimzi,Cortex,OCI,Network Service Mesh,CNI,Dragonfly,Buildpacks,CDF,OpenTracing,Virtual Kubelet,Spiffe,Spire,ChubaoFS,TUF,Telepresence,in-toto,Notary,rkt,OpenMetrics,CNCF,Knative,Istio,CloudFoundry,Hyperledger,Hyperledger Labs,Aries,Avalon,Besu,Burrow,Cactus,Caliper,Cello,Composer,Explorer,Fabric,Grid,Indy,Iroha,Quilt,Sawtooth,Transact,Ursa,Academy Software Foundation,OpenColor.io,OpenCue,OpenEXR,Open Shading Language,OpenTimeline.io,OpenVDB,DPDK,Dronecode,Stack Storm,Tars Cloud,Yocto,ACUMOS,Adlik,ANGEL,PaddlePaddle,EDL,Zowe,ForestFlow,Horovod,LF-AI,Ludwig,Marquez,Milvus,NNSTREAMER,ONNX,Pyro,Sparklyr,Akraino Edge,Baetyl,EdgeX Foundry,Fledge,Home Edge,Open Horizon,Project Eve,State of the Edge,LF Edge,OPX'
 # FN=resultfile.csv (default: result.csv)
 wd=`pwd`
 if [ -z "${FN}" ]
@@ -141,6 +141,7 @@ projs[${#projs[@]}]='Open Horizon'
 projs[${#projs[@]}]='Project Eve'
 projs[${#projs[@]}]='State of the Edge'
 projs[${#projs[@]}]='LF Edge'
+projs[${#projs[@]}]='OPX'
 declare -A sources
 sources[${#sources[@]}]='kubernetes kubernetes-client kubernetes-csi kubernetes-incubator kubernetes-security kubernetes-sigs kubernetes-sig-testing'
 sources[${#sources[@]}]='torvalds/linux'
@@ -255,6 +256,7 @@ sources[${#sources[@]}]='open-horizon'
 sources[${#sources[@]}]='lf-edge/eve lf-edge/runx lf-edge/edge-containers lf-edge/adam lf-edge/eden'
 sources[${#sources[@]}]='state-of-the-edge'
 sources[${#sources[@]}]='lf-edge'
+sources[${#sources[@]}]='open-switch/opx-tools open-switch/opx-pas open-switch/opx-sdi-sys open-switch/opx-platform-config open-switch/opx-nas-daemon open-switch/opx-nas-qos open-switch/opx-nas-l3 open-switch/opx-nas-l2 open-switch/opx-nas-multicast open-switch/opx-nas-interface open-switch/opx-nas-acl open-switch/opx-nas-sdi open-switch/opx-nas-sdi-api open-switch/opx-nas-linux open-switch/opx-nas-common open-switch/opx-sai-vm open-switch/opx-sai-api open-switch/opx-base-model open-switch/opx-cps open-switch/opx-common-utils open-switch/opx-onie-installer open-switch/opx-build open-switch/opx-test open-switch/opx-core open-switch/continuous-integration open-switch/opx-logging open-switch/ansible-role-opx-vlan open-switch/opx-docs open-switch/rootfs'
 skip_project() {
   if [ -z "${ONLY}" ]
   then
